@@ -17,8 +17,6 @@ public class AppController {
         this.students = students;
     }
 
-//    Services ser = new Services(123);
-
     @ResponseBody // It will treat as a response body
     @GetMapping({"/info", "/"})
     public String studentInfo() {

@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "StudentRecord")
 public class Records {
-
     private String fullName;
     private String studentAddress;
 
