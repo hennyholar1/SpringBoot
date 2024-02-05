@@ -1,26 +1,32 @@
 package com.training.learning.controller;
 
+import com.training.learning.dao.StudentRepository;
 import com.training.learning.domain.Services;
+import com.training.learning.domain.SpringBootDemo;
 import com.training.learning.domain.Students;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 //@Controller
 @RestController
 public class AppController {
 
+    private final StudentRepository studentRepository;
     private final Services services;
-    private final Students students;
+    private final SpringBootDemo springBootDemo;
 
 // Contractor injection style
-    public AppController(Services services, Students students) {
+    public AppController(Services services, SpringBootDemo springBootDemo, StudentRepository studentRepository) {
         this.services = services;
-        this.students = students;
+        this.springBootDemo = springBootDemo;
+        this.studentRepository = studentRepository;
     }
 
     @ResponseBody // It will treat as a response body
     @GetMapping({"/info", "/"})
-    public String studentInfo() {
-        return "Hello world!!!!";
+    public List<Students> studentInfo() {
+        return studentRepository.findAll();
         //return path_to_non_static_file(.jsp or thymeleaf)
     }
 
@@ -46,6 +52,6 @@ public class AppController {
 
     @GetMapping("/stu")
     public String holder() {
-        return students.studentInfo();
+        return springBootDemo.studentInfo();
     }
 }

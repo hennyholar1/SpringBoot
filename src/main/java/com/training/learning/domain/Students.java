@@ -1,36 +1,27 @@
 package com.training.learning.domain;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
+
+import java.util.stream.IntStream;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Component
+@Entity
+@Table(name = "StudentRecord")
 public class Students {
     private String fullName;
     private String studentAddress;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    public Students(String fullName, int id) {
+    public Students(String fullName, String studentAddress) {
         this.fullName = fullName;
-        this.id = id;
-    }
-
-    public String studentInfo() {
-        setFullName("King");
-        setStudentAddress("123 ABC Street");
-        setId(23);
-        return "Contract injection returns: " + this;
-    }
-
-    @Override
-    public String toString() {
-        return "Students:    \n" +
-                "\nfullName: '" + getFullName() + '\'' +
-                ",\n address:' " + getStudentAddress() + '\'' +
-                ", \nid: " + getId();
+        this.studentAddress = studentAddress;
     }
 }

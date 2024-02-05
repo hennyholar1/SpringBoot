@@ -18,11 +18,11 @@ public class Services {
         return "Returning : " + input + " with and id: " + id;
     }
 
-    public Students getStudents(Students students) {
+    public SpringBootDemo getStudents(SpringBootDemo students) {
         return students;
     }
 
-    public Students getStudents() {
-        return new Students("My Student", 123);
+    public SpringBootDemo getStudents() {
+        return new SpringBootDemo("My Student", 123);
     }
 }

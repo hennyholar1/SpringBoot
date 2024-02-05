@@ -1,0 +1,3 @@
+2024-02-03 18:31:42.474115-06:00 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "RECORDS" not found (this database is empty); SQL statement:
+select * from Records [42104-224]
